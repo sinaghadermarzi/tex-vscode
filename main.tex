@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[final]{temporary_style}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage[x11names]{xcolor}         % colors
+\usepackage{threeparttable}
+\usepackage[most]{tcolorbox}
+\usepackage{soul}
+\soulregister\ref7
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+
+
+
+
+\definecolor{mygray}{HTML}{9F9F9F} 
+\newcommand{\gcmt}[1]{\textit{\textcolor{mygray}{#1}}}
+
+
+\bibliographystyle{plain} % or another style like plainnat, IEEEtran, etc.
+
+
+
+\title{My Paper Title}
+
+
+
+\author{
+  Sina Gh \\
+  Sina Inc. \\
+  Bellevue, Washington \\
+  \texttt{sina@sina.page} 
+  \And
+  Sina Gh \\
+  Sina Inc. \\
+  Bellevue, Washington \\
+  \texttt{sina@sina.page} 
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+lorem ipsum example text here. 
+\end{abstract}
+
+
+\section{Introduction}
+\label{section:introduction}
+This is an example template based on NeurIPS2024 template. \cite{example_ref}.
+
+
+\bibliography{references}
+
+\end{document}
+
