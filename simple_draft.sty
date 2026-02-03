@@ -27,10 +27,19 @@
 
 \RequirePackage{titling}
 \RequirePackage{authblk}
+\RequirePackage{pifont} % For envelope symbol
 \pretitle{\begingroup\centering\fontsize{18pt}{21pt}\bfseries}
 \posttitle{\par\endgroup}
 \preauthor{\begingroup\centering}
 \postauthor{\par\endgroup}
+
+% Corresponding author command
+% Usage: \correspondingauthor[1,2]{Author Name}{email@example.com}
+\newcommand{\correspondingauthor}[3][]{%
+  \author[#1,\ding{41}]{#2}%
+  \AfterEndPreamble{\affil[\ding{41}]{Corresponding author: #3}}%
+}
+\RequirePackage{etoolbox} % For \AfterEndPreamble
 
 \RequirePackage{abstract}
 \setlength{\absleftindent}{0.75in}
@@ -57,8 +66,23 @@
   \renewcommand{\headrulewidth}{0.4pt}%
 }
 
-% Line numbering support (use \linenumbers in main document to enable)
+% Line numbering support
 \RequirePackage{lineno}
+
+% Enable line numbers starting from abstract
+% Usage: \enablelinenumbers in preamble
+\newcommand{\enablelinenumbers}{%
+  % Patch abstract environment to include line numbers
+  \let\oldabstract\abstract
+  \let\endoldabstract\endabstract
+  \renewenvironment{abstract}{%
+    \oldabstract\linenumbers
+  }{%
+    \endoldabstract
+  }%
+  % Enable line numbers for everything after abstract
+  \AfterEndEnvironment{abstract}{\linenumbers}%
+}
 
 % First page footnote command
 \newcommand{\firstpagefootnote}[1]{%
