@@ -1,0 +1,30 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "james-yu.latex-workshop",
+                // "nickfode.latex-formatter",
+                "mathematic.vscode-latex",
+                "ms-azuretools.vscode-docker",
+                "meezilla.json",
+                "valentjn.vscode-ltex",
+                "github.copilot",
+                "github.copilot-chat"
+            ],
+            "settings": {
+                "http.proxyStrictSSL": false
+            }
+        }
+    },
+    "remoteEnv": {
+        "NODE_EXTRA_CA_CERTS": "/etc/ssl/certs/ca-certificates.crt",
+        "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+    },
+    "mounts": [
+        // "source=${env:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached" // Windows only to use Git credentials
+    ],
+    "postCreateCommand": "sed -i 's/\r$//' .devcontainer/misc/*.sh;sh .devcontainer/misc/initialize.sh"
+}
