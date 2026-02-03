@@ -56,3 +56,18 @@
   \fancyhead[C]{\textcolor{black}{#1}}%
   \renewcommand{\headrulewidth}{0.4pt}%
 }
+
+% Line numbering support (use \linenumbers in main document to enable)
+\RequirePackage{lineno}
+
+% First page footnote command
+\newcommand{\firstpagefootnote}[1]{%
+  \let\oldmaketitle\maketitle
+  \renewcommand{\maketitle}{\oldmaketitle\thispagestyle{footnote}}%
+  \fancypagestyle{footnote}{%
+    \fancyhf{}%
+    \fancyfoot[R]{\thepage}%
+    \fancyfoot[L]{\footnotesize #1}%
+    \renewcommand{\headrulewidth}{0pt}%
+  }%
+}
